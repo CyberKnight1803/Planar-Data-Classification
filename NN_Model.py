@@ -1,7 +1,7 @@
 import numpy as np
 from planar_utils import sigmoid
 
-np.random.seed(1)
+np.random.seed(1)                  # For consistentency
 
 class Model:
     def __init__(self, n_x, n_h, n_y, learning_rate = 1):
@@ -13,10 +13,10 @@ class Model:
 
         self.learning_rate = learning_rate
 
-        self.W1 = np.random.rand(self.n_h, self.n_x)
+        self.W1 = np.random.randn(self.n_h, self.n_x) * 0.01
         self.b1 = np.zeros((self.n_h, 1))
 
-        self.W2 = np.random.rand(self.n_y, self.n_h)
+        self.W2 = np.random.randn(self.n_y, self.n_h) * 0.01
         self.b2 = np.zeros((self.n_y, 1))
 
     def forward_propagation(self, X):
